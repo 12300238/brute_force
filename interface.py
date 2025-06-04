@@ -1,7 +1,7 @@
 from tkinter import *
 
 def do_something():
-    print("Clicked")
+  print("Clicked")
 
 
 # On instancie notre fenêtre graphique
