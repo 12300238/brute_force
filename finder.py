@@ -23,16 +23,14 @@ def incrémenter(tab:List[int]):
 
 def pasdouble(tab:List[int]):
     
-    if tab == list(set(tab)):
+    if len(tab) == len(list(set(tab))):
         return True
     return False
 
-print(list(set([2,1,2])))
-
 e=0
-'''while e<=100:
+while e<=1000:
     res=incrémenter(actuelle)
     if pasdouble(res):
         print(res)
     actuelle = res
-    e+=1'''
+    e+=1
