@@ -31,14 +31,28 @@ def legite(tab:List[int]):
   while i+1<len(tab):
     if tab[i]==1 and not (tab[i+1] in [2,4,5]):
       return False
-    elif tab[i]==1 and not (tab[i+1] in [2,4,5]):
+    elif tab[i]==2 and not (tab[i+1] in [1,4,5,6,3]):
+      return False
+    elif tab[i]==3 and not (tab[i+1] in [2,5,6]):
+      return False
+    elif tab[i]==4 and not (tab[i+1] in [1,2,5,8,7]):
+      return False
+    elif tab[i]==5 and not (tab[i+1] in [1,2,3,4,6,8,7,9]):
+      return False
+    elif tab[i]==6 and not (tab[i+1] in [2,3,5,8,9]):
+      return False
+    elif tab[i]==7 and not (tab[i+1] in [4,5,8]):
+      return False
+    elif tab[i]==8 and not (tab[i+1] in [7,4,5,6,9]):
+      return False
+    elif tab[i]==9 and not (tab[i+1] in [8,5,6]):
       return False
     i+=1
   return True
         
 
 e=0
-while e<=10:
+while e<=100:
   res=incrémenter(actuelle)
   if legite(res):
     print(res)
