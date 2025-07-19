@@ -1,12 +1,5 @@
 from typing import List
-
-matrice = [
-  [1,2,3],
-  [4,5,6],
-  [7,8,9]
-]
-
-actuelle = [1]
+import json
 
 def incrémenter(tab:List[int]):
   tab[0] +=1
@@ -98,11 +91,16 @@ def legite(tab:List[int]):
     i+=1
   return True
         
+actuelle = [1]
+res = []
+final = []
 
-e=0
-while e<=1000:
+while len(res) <= 9:
   res=incrémenter(actuelle)
   if pasdouble(res) and legite(res):
     print(res)
+    final.append(res.copy())
   actuelle = res
-  e+=1
+
+with open("possibilité.json", "w", encoding="utf-8") as f:
+  json.dump(final, f, ensure_ascii=False)
