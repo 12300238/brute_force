@@ -2,6 +2,12 @@ from typing import List
 import json
 
 def incrémenter(tab:List[int]):
+  '''
+  augmente la valeur du premier élément de la liste de 1, et gère les retenues si nécessaire
+  
+  param tab: liste a incrémenter
+  retourne: la liste incrémentée
+  '''
   tab[0] +=1
   i=0
   while i < len(tab)-1:
@@ -15,21 +21,37 @@ def incrémenter(tab:List[int]):
   return tab
 
 def pasdouble(tab:List[int]):
+  '''
+  vérifie si la liste ne contient pas de doublons
+
+  param tab: liste a vérifier
+  retourne: True si pas de doublons, False sinon
+  '''
   if len(tab) == len(list(set(tab))):
     return True
   return False
 
 def legite(tab:List[int]):
+  '''
+  vérifit si la l'enchainement est possible a reproduire sur le chema
+
+  param tab: liste a vérifier
+  retourne: True si l'enchainement est possible, False sinon
+  '''
+
   i = 0
   précedent = []
+
   while i+1<len(tab):
     if tab[i]==1:
+      #si un nombre est déjà pris alors on peut accéder a celui derière
       if not 2 in précedent and 3 == tab[i+1]:
         return False
       elif not 4 in précedent and 7 == tab[i+1]:
         return False
       elif not 5 in précedent and 9 == tab[i+1]:
         return False
+      #si le nombre suivant est accessible directement
       elif not (tab[i+1] in [2,4,5,8,6]):
         return False
       
@@ -87,14 +109,22 @@ def legite(tab:List[int]):
       elif not (tab[i+1] in [2,4,5,8,6]):
         return False
     
+    #la liste de tout les nombres déjà traité dans le tableau actuel
     précedent.append(tab[i])
     i+=1
+
   return True
-        
+
+#je sais pas pourquoi mais si je le met pas ça ne marche pas 
 actuelle = [1]
+
+#liste traitée avtuellement
 res = []
+
+#liste de toutes les possibilités
 final = []
 
+#bruh...
 while len(res) <= 9:
   res=incrémenter(actuelle)
   if pasdouble(res) and legite(res):
@@ -102,5 +132,6 @@ while len(res) <= 9:
     final.append(res.copy())
   actuelle = res
 
+#on écrit les possibiltés dans un fichier json
 with open("possibilité.json", "w", encoding="utf-8") as f:
   json.dump(final, f, ensure_ascii=False)
