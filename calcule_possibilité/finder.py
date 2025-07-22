@@ -80,7 +80,7 @@ def legite(tab:List[int]):
     elif tab[i]==6:
       if not 5 in précedent and 4 == tab[i+1]:
         return False
-      elif not (tab[i+1] in [1,2,3,4,7,8,9]):
+      elif not (tab[i+1] in [1,2,3,5,7,8,9]):
         return False
       
     elif tab[i]==7:
