@@ -123,15 +123,3 @@ res = []
 
 #liste de toutes les possibilités
 final = []
-
-#bruh...
-while len(res) <= 9:
-  res=incrémenter(actuelle)
-  if pasdouble(res) and legite(res):
-    print(res)
-    final.append(res.copy())
-  actuelle = res
-
-#on écrit les possibiltés dans un fichier json
-with open("possibilité.json", "w", encoding="utf-8") as f:
-  json.dump(final, f, ensure_ascii=False)
