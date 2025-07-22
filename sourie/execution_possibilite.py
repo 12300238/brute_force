@@ -21,3 +21,24 @@ def co_finder(i:int) -> list[int]:
         9: [2481, 1423]
     }
     return coords.get(i, [0, 0])  # Retourne [0,0] si i n'est pas valide
+
+def click_and_move(possibility:list[int], pos):
+
+    co = co_finder(possibility[0])
+    souris.position = (co[0], co[1])
+    pos = souris.position
+    sleep(0.01)
+
+    i=1
+    souris.press(Button.left)
+    while i< len(possibility):
+        co = co_finder(possibility[i])
+        souris.move(co[0]-pos[0], co[1]-pos[1])
+        pos = co
+        sleep(0.01)
+        i += 1
+    souris.release(Button.left)
+
+position = souris.position
+
+click_and_move([1,5,9,6,3,2,8,7,4], position)
