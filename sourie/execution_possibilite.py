@@ -40,5 +40,3 @@ def click_and_move(possibility:list[int], pos):
     souris.release(Button.left)
 
 position = souris.position
-
-click_and_move([1,5,9,6,3,2,8,7,4], position)
