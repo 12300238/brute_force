@@ -1,12 +1,3 @@
-from time import sleep
-from pynput.mouse import Controller, Button
+from execution_possibilite import *
 
-mouse = Controller()
-
-mouse.press(Button.left)
-mouse.move(100, 0)
-sleep(0.1)
-mouse.move(0, 100)
-sleep(0.1)
-mouse.move(-100, 0)
-mouse.release(Button.left)
+click_and_move([4,1,7])

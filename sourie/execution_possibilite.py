@@ -27,7 +27,7 @@ def click_and_move(possibility:list[int], pos=souris.position):
     co = co_finder(possibility[0])
     souris.position = (co[0], co[1])
     pos = souris.position
-    sleep(0.01)
+    sleep(0.1)
 
     i=1
     souris.press(Button.left)
@@ -35,6 +35,6 @@ def click_and_move(possibility:list[int], pos=souris.position):
         co = co_finder(possibility[i])
         souris.move(co[0]-pos[0], co[1]-pos[1])
         pos = co
-        sleep(0.01)
+        sleep(0.1)
         i += 1
     souris.release(Button.left)

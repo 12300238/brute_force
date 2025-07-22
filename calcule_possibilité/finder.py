@@ -45,67 +45,75 @@ def legite(tab:List[int]):
   while i+1<len(tab):
     if tab[i]==1:
       #si un nombre est déjà pris alors on peut accéder a celui derière
-      if not 2 in précedent and 3 == tab[i+1]:
-        return False
-      elif not 4 in précedent and 7 == tab[i+1]:
-        return False
-      elif not 5 in précedent and 9 == tab[i+1]:
-        return False
+      if tab[i+1] in [3,7,9]:
+        if not 2 in précedent and 3 == tab[i+1]:
+          return False
+        elif not 4 in précedent and 7 == tab[i+1]:
+          return False
+        elif not 5 in précedent and 9 == tab[i+1]:
+          return False
       #si le nombre suivant est accessible directement
       elif not (tab[i+1] in [2,4,5,8,6]):
         return False
       
     elif tab[i]==2:
-      if not 5 in précedent and 8 == tab[i+1]:
-        return False
+      if tab[i+1] in [8]:
+        if not 5 in précedent and 8 == tab[i+1]:
+          return False
       elif not (tab[i+1] in [1,3,4,5,6,7,9]):
         return False
       
     elif tab[i]==3:
-      if not 2 in précedent and 1 == tab[i+1]:
-        return False
-      elif not 6 in précedent and 9 == tab[i+1]:
-        return False
-      elif not 5 in précedent and 7 == tab[i+1]:
-        return False
+      if tab[i+1] in [1,9,7]:
+        if not 2 in précedent and 1 == tab[i+1]:
+          return False
+        elif not 6 in précedent and 9 == tab[i+1]:
+          return False
+        elif not 5 in précedent and 7 == tab[i+1]:
+          return False
       elif not (tab[i+1] in [2,4,5,8,6]):
         return False
       
     elif tab[i]==4:
-      if not 5 in précedent and 6 == tab[i+1]:
-        return False
+      if tab[i+1] in [6]:
+        if not 5 in précedent and 6 == tab[i+1]:
+          return False
       elif not (tab[i+1] in [1,2,3,5,7,8,9]):
         return False
       
     elif tab[i]==6:
-      if not 5 in précedent and 4 == tab[i+1]:
-        return False
+      if tab[i+1] in [4]:
+        if not 5 in précedent and 4 == tab[i+1]:
+          return False
       elif not (tab[i+1] in [1,2,3,5,7,8,9]):
         return False
       
     elif tab[i]==7:
-      if not 4 in précedent and 1 == tab[i+1]:
-        return False
-      elif not 8 in précedent and 9 == tab[i+1]:
-        return False
-      elif not 5 in précedent and 3 == tab[i+1]:
-        return False
+      if tab[i+1] in [3,1,9]:
+        if not 4 in précedent and 1 == tab[i+1]:
+          return False
+        elif not 8 in précedent and 9 == tab[i+1]:
+          return False
+        elif not 5 in précedent and 3 == tab[i+1]:
+          return False
       elif not (tab[i+1] in [2,4,5,8,6]):
         return False
       
     elif tab[i]==8:
-      if not 5 in précedent and 2 == tab[i+1]:
-        return False
+      if tab[i+1] in [2]:
+        if not 5 in précedent and 2 == tab[i+1]:
+          return False
       elif not (tab[i+1] in [1,3,4,5,6,7,9]):
         return False
       
     elif tab[i]==9:
-      if not 6 in précedent and 3 == tab[i+1]:
-        return False
-      elif not 5 in précedent and 1 == tab[i+1]:
-        return False
-      elif not 8 in précedent and 7 == tab[i+1]:
-        return False
+      if tab[i+1] in [3,7,1]:
+        if not 6 in précedent and 3 == tab[i+1]:
+          return False
+        elif not 5 in précedent and 1 == tab[i+1]:
+          return False
+        elif not 8 in précedent and 7 == tab[i+1]:
+          return False
       elif not (tab[i+1] in [2,4,5,8,6]):
         return False
     
@@ -114,12 +122,3 @@ def legite(tab:List[int]):
     i+=1
 
   return True
-
-#je sais pas pourquoi mais si je le met pas ça ne marche pas 
-actuelle = [1]
-
-#liste traitée avtuellement
-res = []
-
-#liste de toutes les possibilités
-final = []
