@@ -10,7 +10,7 @@ res = []
 #liste de toutes les possibilités
 final = []
 
-while len(res) <= 2:
+while len(res) <= 3:
   res=incrémenter(actuelle)
   if pasdouble(res) and legite(res):
     click_and_move(res)
